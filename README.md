@@ -60,7 +60,8 @@ Full Subtractor:
 
 VERILOG CODE:
 
-```module fulladder(sum,cout, a,b,c);
+```
+module fulladder(sum,cout, a,b,c);
 input a,b,c;
 output sum,cout;
   wire w1,w2,w3,w4,w5;
@@ -74,10 +75,14 @@ output sum,cout;
   or o2(cout,w5,w4);
     
 endmodule
+```
 OUTPUT
+
  simulation
 ![image](https://github.com/Thulasiraman04/VLSI-LAB-EXP-1/assets/161105890/ff3329b9-5e88-4858-bf3b-a7492d98ce1d)
+
 Elaborated Design:
+
 ![image](https://github.com/Thulasiraman04/VLSI-LAB-EXP-1/assets/161105890/feec878a-0f0e-4345-b0e2-33a5457e3430)
 
 #2:-
@@ -87,7 +92,8 @@ TOR:-
 
 Code:
 
-```module full_sub(borrow,diff,a,b,c);
+```
+module full_sub(borrow,diff,a,b,c);
 output borrow,diff;
 input a,b,c;
 wire w1,w4,w5,w6;
@@ -98,6 +104,7 @@ and a2(w5,w1,c);
 and a3(w6,b,c);
 or o1(borrow,w4,w5,w6);
 endmodule
+```
 OUTPUT:-
 
 Simulation:
@@ -111,13 +118,14 @@ Elaborated Design:
 HALF_ADDER:-
 
 Code:
-
-```module half_adder(a,b,sum,carry);
+```
+module half_adder(a,b,sum,carry);
 input a,b;
 output sum,carry; // sum and carry
 or(sum,a,b);
 and(carry,a,b);
 endmodule
+```
 OUTPUT:-
 
 Simulation
@@ -128,8 +136,8 @@ Elaborated Design:
 #4 HALF_SUBTRACTOR:-
 
 Code:
-
-```module halfsubtractor( D,Bo,A,B);
+```
+module halfsubtractor( D,Bo,A,B);
 input A,B;
 output D,Bo;
 wire w1;
@@ -137,6 +145,7 @@ xor (D,A,B);
 not (w1,B);
 and (Bo,B,w1);
 endmodule
+```
 OUTPUT:-
 
 Simulation:
@@ -161,7 +170,7 @@ nor(norgate,a,b);
 xnor(xnorgate,a,b);
 not(notgate,a);
 endmodule
-```
+````
 
 OUTPUT:
 
@@ -178,7 +187,7 @@ Elaborated Design:
 RIPPLE_CARRY_Adder(4-BIT):-
 
 Code:
-
+```
 module rippe_adder(S, Cout, X, Y,Cin);
 input [3:0] X, Y;// Two 4-bit inputs
 input Cin;
@@ -202,6 +211,7 @@ and G3(w2, w1, Ci);
 and G4(w3, X, Y);
 or  G5(Co, w2, w3);
 endmodule
+```
 OUTPUT:-
 
 Simulation:
@@ -216,7 +226,7 @@ Elaborated Design:
 RIPPLE_CARRY_ADDER(8-BIT):-
 
 Code:
-
+```
 module fulladder(sum,cout, a,b,c);
 input a,b,c;
 output sum,cout;
@@ -231,6 +241,7 @@ output sum,cout;
   or o2(cout,w5,w4);
     
 endmodule
+
 module rippe_adder(S,Cout,X,Y,Cin);
 input [7:0] X,Y;
 input Cin;
@@ -256,7 +267,8 @@ xor G2(S,w1,Ci);
 and G3(w2,X,Ci);
 and G4(w3,X,Y);
 or G5(CO,w3,w3);
-endmodule 
+endmodule
+```
 OUTPUT:-
 
 Simulation:
