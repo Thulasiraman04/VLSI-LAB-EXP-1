@@ -149,8 +149,8 @@ Simulation:
 #5 LOGIC_GATES:-
 
 Code:
-
-```module logicgates(a,b,andgate,orgate,xorgate,nandgate,norgate,xnorgate,notgate);
+```
+module logicgates(a,b,andgate,orgate,xorgate,nandgate,norgate,xnorgate,notgate);
 input a,b;
 output andgate,orgate,xorgate,nandgate,norgate,xnorgate,notgate;
 and(andgate,a,b);
@@ -161,6 +161,7 @@ nor(norgate,a,b);
 xnor(xnorgate,a,b);
 not(notgate,a);
 endmodule
+```
 
 OUTPUT:
 
