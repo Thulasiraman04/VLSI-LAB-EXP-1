@@ -1,29 +1,25 @@
 # VLSI-LAB-EXPERIMENTS
-# SIMULATE AND SYNTHESIS OF LOGIC GATES ,ADDERS AND SUBTRACTORS
-AIM: To simulate and synthesis Logic Gates,Adders and Subtractor using Xilinx ISE.
+AIM: To simulate and synthesis full adder,full subtractor,half adder,half subtractor,logic gates,ripplecarryadder_4bit,ripplecarryadder_8bit using vivado 2023.2.
 
-APPARATUS REQUIRED: Vivado™ ML 2023.2
+APPARATUS REQUIRED: vivado 2023.2
 
-PROCEDURE:
+PROCEDURE: 1. Open Vivado: Launch Xilinx Vivado software on your computer.
 
-Open Vivado: Launch Xilinx Vivado software on your computer.
+2. Create a New Project: Click on "Create Project" from the welcome page or navigate through "File" > "Project" > "New".
 
-Create a New Project: Click on "Create Project" from the welcome page or navigate through "File" > "Project" > "New".
+3. Project Settings: Follow the prompts to set up your project. Specify the project name, location, and select RTL project type.
 
-Project Settings: Follow the prompts to set up your project. Specify the project name, location, and select RTL project type.
+4. Add Design Files: Add your Verilog design files to the project. You can do this by right-clicking on "Design Sources" in the Sources window, then selecting "Add Sources". Choose your Verilog files from the file browser.
 
-Add Design Files: Add your Verilog design files to the project. You can do this by right-clicking on "Design Sources" in the Sources window, then selecting "Add Sources". Choose your Verilog files from the file browser.
+5. Specify Simulation Settings: Go to "Simulation" > "Simulation Settings". Choose your simulation language (Verilog in this case) and simulation tool (Vivado Simulator).
 
-Specify Simulation Settings: Go to "Simulation" > "Simulation Settings". Choose your simulation language (Verilog in this case) and simulation tool (Vivado Simulator).
+6. Run Simulation: Go to "Flow" > "Run Simulation" > "Run Behavioral Simulation". This will launch the Vivado Simulator and compile your design for simulation.
 
-Run Simulation: Go to "Flow" > "Run Simulation" > "Run Behavioral Simulation". This will launch the Vivado Simulator and compile your design for simulation.
+7. Set Simulation Time: In the Vivado Simulator window, set the simulation time if it's not set automatically. This determines how long the simulation will run.
 
-Set Simulation Time: In the Vivado Simulator window, set the simulation time if it's not set automatically. This determines how long the simulation will run.
+8. Run Simulation: Start the simulation by clicking on the "Run" button in the simulation window.
 
-Run Simulation: Start the simulation by clicking on the "Run" button in the simulation window.
-
-View Results: After the simulation completes, you can view waveforms, debug signals, and analyze the behavior of your design.
-
+9. View Results: After the simulation completes, you can view waveforms, debug signals, and analyze the behavior of your design.
 Logic Diagram :
 
 Logic Gates:
@@ -59,106 +55,8 @@ Full Subtractor:
 
 
 VERILOG CODE:
-
-```
-module fulladder(sum,cout, a,b,c);
-input a,b,c;
-output sum,cout;
-  wire w1,w2,w3,w4,w5;
-  xor x1(w1,a,b);
-  xor x2(sum,w1,c);  
-  and a1(w2,a,b);
-  and a2(w3,b,c);
-  and a3(w4,a,c);
-  
-  or o1(w5,w2,w3);
-  or o2(cout,w5,w4);
-    
-endmodule
-```
-OUTPUT
-
- simulation
-![image](https://github.com/Thulasiraman04/VLSI-LAB-EXP-1/assets/161105890/ff3329b9-5e88-4858-bf3b-a7492d98ce1d)
-
-Elaborated Design:
-
-![image](https://github.com/Thulasiraman04/VLSI-LAB-EXP-1/assets/161105890/feec878a-0f0e-4345-b0e2-33a5457e3430)
-
-#2:-
-
-FULL_SUBTRAC
-TOR:-
-
-Code:
-
-```
-module full_sub(borrow,diff,a,b,c);
-output borrow,diff;
-input a,b,c;
-wire w1,w4,w5,w6;
-xor (diff,a,b,c);
-not n1(w1,a);
-and a1(w4,w1,b);
-and a2(w5,w1,c);
-and a3(w6,b,c);
-or o1(borrow,w4,w5,w6);
-endmodule
-```
-OUTPUT:-
-
-Simulation:
-
-![image](https://github.com/Thulasiraman04/VLSI-LAB-EXP-1/assets/161105890/42b1845c-4323-44ba-9735-2f6440a3e59b)
-
-Elaborated Design:
-![image](https://github.com/Thulasiraman04/VLSI-LAB-EXP-1/assets/161105890/522a8ac1-48ce-41fb-b108-a1e91f9b9dda)
-#3:-
-
-HALF_ADDER:-
-
-Code:
-```
-module half_adder(a,b,sum,carry);
-input a,b;
-output sum,carry; // sum and carry
-or(sum,a,b);
-and(carry,a,b);
-endmodule
-```
-OUTPUT:-
-
-Simulation
-![image](https://github.com/Thulasiraman04/VLSI-LAB-EXP-1/assets/161105890/9cadabae-71cd-46c6-868e-af113be50495)
-Elaborated Design:
-
-![image](https://github.com/Thulasiraman04/VLSI-LAB-EXP-1/assets/161105890/38117d35-a836-4f27-a1ce-7ce48e5a1ba0)
-#4 HALF_SUBTRACTOR:-
-
-Code:
-```
-module halfsubtractor( D,Bo,A,B);
-input A,B;
-output D,Bo;
-wire w1;
-xor (D,A,B);
-not (w1,B);
-and (Bo,B,w1);
-endmodule
-```
-OUTPUT:-
-
-Simulation:
-
-![image](https://github.com/Thulasiraman04/VLSI-LAB-EXP-1/assets/161105890/9829a38c-b7b6-45cb-9c0c-8a53fa744f6b)
- Elaborated Design:
-
-![image](https://github.com/Thulasiraman04/VLSI-LAB-EXP-1/assets/161105890/46c52585-0d0b-45c7-bce3-846e0ea3e3bc)
-
-#5 LOGIC_GATES:-
-
-Code:
-```
+Logicgates:
+~~~
 module logicgates(a,b,andgate,orgate,xorgate,nandgate,norgate,xnorgate,notgate);
 input a,b;
 output andgate,orgate,xorgate,nandgate,norgate,xnorgate,notgate;
@@ -170,115 +68,120 @@ nor(norgate,a,b);
 xnor(xnorgate,a,b);
 not(notgate,a);
 endmodule
-````
+~~~
+OUTPUT:
+![image](https://github.com/Desika11/VLSI-LAB-EXP-1/assets/165646570/2dc28223-f3a3-4a64-b3a1-d27c8b2a89ca)
+![image](https://github.com/Desika11/VLSI-LAB-EXP-1/assets/165646570/e90ca13d-492b-411c-8004-8a679f1118d8)
+
+Halfadder:
+~~~
+module half_adder(a,b,sum,carry);
+input a,b;
+output sum,carry;
+or(sum,a,b);
+and(carry,a,b);
+endmodule
+~~~
+OUTPUT:
+![image](https://github.com/Desika11/VLSI-LAB-EXP-1/assets/165646570/3e71c806-6478-4aeb-955c-5d620405b28f)
+![image](https://github.com/Desika11/VLSI-LAB-EXP-1/assets/165646570/e24f1589-f8c1-47f5-baaa-2b8d82673383)
+
+
+Fulladder:
+~~~
+module full_adder(a,b,c,sum,carry);
+input a,b,c;
+output sum,carry;
+  assign sum=(a^b^c);
+  assign carry=(a&b)|(b&c)|(a&c);
+endmodule
+~~~
+OUTPUT:
+![image](https://github.com/Desika11/VLSI-LAB-EXP-1/assets/165646570/5a88418d-03bd-488c-a923-36dc99f8dc42)
+![image](https://github.com/Desika11/VLSI-LAB-EXP-1/assets/165646570/26a137dd-55a1-41cb-8a1b-d997fac45ffd)
+
+
+Fullsubtractor:
+~~~
+module half_subtractor(d,b0,a,b);
+input a,b;
+output d,b0;
+  assign d=a^b;
+  assign b0=(~a)&b;
+endmodule
+~~~
 
 OUTPUT:
 
-Simulation:
+![image](https://github.com/Desika11/VLSI-LAB-EXP-1/assets/165646570/c03c41c4-91df-4e9b-83ec-fe03b6f6ee8f)
 
-![image](https://github.com/Thulasiraman04/VLSI-LAB-EXP-1/assets/161105890/fee1107f-8527-4a44-91b2-33483581e99a)
-
-Elaborated Design:
-
-![image](https://github.com/Thulasiraman04/VLSI-LAB-EXP-1/assets/161105890/90ff5810-bedc-4046-a492-c9b16ec0a63f)
-
-#6
-
-RIPPLE_CARRY_Adder(4-BIT):-
-
-Code:
-```
+![image](https://github.com/Desika11/VLSI-LAB-EXP-1/assets/165646570/518b4bb1-4bef-4d91-83f6-d4d477f98446)
+4 Bit Ripple Carry Adder:
+~~~
 module rippe_adder(S, Cout, X, Y,Cin);
-input [3:0] X, Y;// Two 4-bit inputs
-input Cin;
-output [3:0] S;
-output Cout;
-wire wl, w2, w3;
-
-fulladder u1(S[0], w1,X[0], Y[0], Cin);
-fulladder u2(S[1], w2,X[1], Y[1], w1);
-fulladder u3(S[2], w3,X[2], Y[2], w2);
-fulladder u4(S[3], Cout,X[3], Y[3], w3);
+ input [3:0] X, Y;
+ input Cin;
+ output [3:0] S;
+ output Cout;
+ wire w1, w2, w3;
+ fulladder u1(S[0], w1,X[0], Y[0], Cin);
+ fulladder u2(S[1], w2,X[1], Y[1], w1);
+ fulladder u3(S[2], w3,X[2], Y[2], w2);
+ fulladder u4(S[3], Cout,X[3], Y[3], w3);
 endmodule
 module fulladder(S, Co, X, Y, Ci);
-input X, Y, Ci;
-output S, Co;
-wire w1,w2,w3;
-//Structural code for one bit full adder 
-xor G1(wl, X, Y);
-xor G2(S, w1, Ci);
-and G3(w2, w1, Ci);
-and G4(w3, X, Y);
-or  G5(Co, w2, w3);
+  input X, Y, Ci;
+  output S, Co;
+  wire w1,w2,w3;
+  xor G1(w1, X, Y);
+  xor G2(S, w1, Ci);
+  and G3(w2, w1, Ci);
+  and G4(w3, X, Y);
+  or G5(Co, w2, w3);
 endmodule
-```
-OUTPUT:-
+~~~
 
-Simulation:
+OUTPUT:
 
-![image](https://github.com/Thulasiraman04/VLSI-LAB-EXP-1/assets/161105890/b8f7fc15-327b-468b-88f6-a705a83c8201)
-Elaborated Design:
+![image](https://github.com/Desika11/VLSI-LAB-EXP-1/assets/165646570/35b7f7e7-7873-4e0b-9d7e-ab6e267308b2)
 
-![image](https://github.com/Thulasiraman04/VLSI-LAB-EXP-1/assets/161105890/8d2e03cb-8dc2-4d39-a09e-9eafd16f1940)
+![image](https://github.com/Desika11/VLSI-LAB-EXP-1/assets/165646570/5900e596-2793-4190-a72c-4da0f382dbda)
 
-#7
 
-RIPPLE_CARRY_ADDER(8-BIT):-
-
-Code:
-```
-module fulladder(sum,cout, a,b,c);
-input a,b,c;
-output sum,cout;
-  wire w1,w2,w3,w4,w5;
-  xor x1(w1,a,b);
-  xor x2(sum,w1,c);  
-  and a1(w2,a,b);
-  and a2(w3,b,c);
-  and a3(w4,a,c);
-  
-  or o1(w5,w2,w3);
-  or o2(cout,w5,w4);
-    
+8 Bit Ripple Carry Adder:
+~~~
+module ripplemod(a, b, cin, sum, cout);
+input [07:0] a;
+input [07:0] b;
+input cin;
+output [7:0]sum;
+output cout;
+wire[6:0] c;
+fulladd a1(a[0],b[0],cin,sum[0],c[0]);
+fulladd a2(a[1],b[1],c[0],sum[1],c[1]);
+fulladd a3(a[2],b[2],c[1],sum[2],c[2]);
+fulladd a4(a[3],b[3],c[2],sum[3],c[3]);
+fulladd a5(a[4],b[4],c[3],sum[4],c[4]);
+fulladd a6(a[5],b[5],c[4],sum[5],c[5]);
+fulladd a7(a[6],b[6],c[5],sum[6],c[6]);
+fulladd a8(a[7],b[7],c[6],sum[7],cout);
 endmodule
-
-module rippe_adder(S,Cout,X,Y,Cin);
-input [7:0] X,Y;
-input Cin;
-output [7:0] S;
-output Cout;
-wire w1,w2,w3,w4,w5,w6,w7;
-fulladder u1(S[0],w1,X[0],Y[0],Cin);
-fulladder u2(S[1],w2,X[1],Y[1],w1);
-fulladder u3(S[2],w3,X[2],Y[2],w2);
-fulladder u4(S[3],w4,X[3],Y[3],w3);
-fulladder u5(S[4],w5,X[4],Y[4],w4);
-fulladder u6(S[5],w6,X[5],Y[5],w5);
-fulladder u7(S[6],w7,X[6],Y[6],w6);
-fulladder u8(S[7],Cout,X[7],Y[7],w7);
+module fulladd(a, b, cin, sum, cout);
+input a;
+input b;
+input cin;
+output sum;
+output cout;
+assign sum=(a^b^cin);
+assign cout=((a&b)|(b&cin)|(a&cin));
 endmodule
+~~~
 
-module fulladder(S,CO,X,Y,Ci);
-input X,Y,Ci;
-output S,CO;
-wire w1,w2,w3;
-xor G1(w1,X,Y);
-xor G2(S,w1,Ci);
-and G3(w2,X,Ci);
-and G4(w3,X,Y);
-or G5(CO,w3,w3);
-endmodule
-```
-OUTPUT:-
+OUTPUT:
 
-Simulation:
+![image](https://github.com/Desika11/VLSI-LAB-EXP-1/assets/165646570/ae89b60f-6201-417f-9b71-3a32ef1e38b3)
 
-![image](https://github.com/Thulasiraman04/VLSI-LAB-EXP-1/assets/161105890/c24e4b1c-2a88-4213-928c-16ac05cf71c0)
+![image](https://github.com/Desika11/VLSI-LAB-EXP-1/assets/165646570/44c4f0dd-abcf-410f-8ea5-8982c1b87244)
 
-Elaborated Design:
-
-
-![image](https://github.com/Thulasiraman04/VLSI-LAB-EXP-1/assets/161105890/3d261896-a279-4e0a-9ab5-84672f3abb20)
-
-
-RESULT : The simulation and synthesis of Logic Gates, Adders and Subtractor using Vivadoo Software are successfully verified
+RESULT:
+Hence the simulation and synthesis of full adder,full subtractor,half adder,half subtractor,logic gates,ripplecarryadder_4bit,ripplecarryadder_8bit using vivado 2023.2. was successfully simulated using vivado.2023.3.
